@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'udacityflaskwebproject'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_21A15F31E3474B0FBA72FD7791F5301F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0AEF136D257423BA30B1CE38D6185A6 }}
