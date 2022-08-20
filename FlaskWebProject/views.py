@@ -93,7 +93,6 @@ def authorized():
             request.args['code'],
             scopes=Config.SCOPE,
             redirect_uri=url_for('authorized', _external=True, _scheme='https'))
-
         if "error" in result:
             app.logger.warning('Invalid login attempt')
             return render_template("auth_error.html", result=result)
@@ -103,6 +102,7 @@ def authorized():
         user = User.query.filter_by(username="admin").first()
         login_user(user)
         _save_cache(cache)
+        app.logger.warning('Admin logged are suscessfully')
     return redirect(url_for('home'))
 
 @app.route('/logout')
@@ -142,4 +142,3 @@ def _build_auth_url(authority=None, scopes=None, state=None):
         scopes or [],
         state=state or str(uuid.uuid4()),
         redirect_uri=url_for('authorized', _external=True, _scheme='https'))
-
